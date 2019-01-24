@@ -1,12 +1,14 @@
 import debug from 'debug'
 import Sequelize from 'sequelize'
 import { tokenDefinition, userDefinition } from './models'
+import { DB } from '../../config'
 
 const log = debug('cbdb:sequelize')
 const sequelize = new Sequelize({
-  database: 'cbdb',
-  username: 'cbdbuser',
-  password: 'cbdbpass',
+  database: DB.database,
+  username: DB.username,
+  password: DB.password,
+  host: DB.host,
   dialect: 'postgres',
   logging: log,
 })
